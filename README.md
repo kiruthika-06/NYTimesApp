@@ -11,7 +11,11 @@ Here i Used MVP pattern to design the app & Retrofit library for HTTP call
 
 
 MVP Architecture:
+
+
 Model-View-Presenter
+
+
 In MVP, the Presenter contains the UI business logic for the View. All invocations from the View delegate directly to Presenter. The Presenter is also decoupled directly from the View and talks to it through an interface. This is to allow mocking of the View in a unit test. One common attribute of MVP is that there has to be a lot of two-way dispatching. For example, when someone clicks the "Save" button, the event handler delegates to the Presenter's "OnSave" method. Once the save is completed, the Presenter will then call back the View through its interface so that the View can display that the save has completed.
 
 
@@ -22,12 +26,15 @@ Retrofit is a REST Client library (Helper Library) used in Android and Java to c
 Function to Create Retrofit instance:
 
 public static Retrofit getRetrofitInstance() {
+        
         if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
+         
+         retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
+        
         return retrofit;
     }
     
